@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>빅데이터 시스템 설계 텀프로젝트</title>
+		<meta charset="utf-8" />
+	</head>
+
+	<body>
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="inner" style="margin-bottom:20px;">
+					<h1>빅데이터 텀프로젝트</h1>
+					<p>2018036057 장서현, 2018036063 김채은</p>
+
+				</div>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+<form method="GET" action="{% url 'search' %}">
+<div class="selectbox" style="margin:0 auto;">
+
+       <select name="matrial_num" value="{{matrial_num}}">
+            <option value="" selected="selected">재질 선택</option>
+            <option value="1">메쉬</option>
+            <option value="2">천</option>
+            <option value="3">가죽</option>
+            <option value="4">스웨이드</option>
+        </select>
+        <select name="height" value="{{height}}">
+            <option value="" selected="selected">굽높이 선택</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+        </select>
+        <input type="submit" value="검색">
+      </div>
+</form>
+
+        <table style="width: 100%; border: 1px solid #333333; border-collapse: collapse; margin-top:20px;">
+          <th style="padding: 10px; border: 1px solid #333333; text-align: center; background-color:#9cabc0;">카테고리</th>
+          <th style="padding: 10px; border: 1px solid #333333; text-align: center; background-color:#9cabc0;">재질명</th>
+          <th style="padding: 10px; border: 1px solid #333333; text-align: center; background-color:#9cabc0;">모델명</th>
+          <th style="padding: 10px; border: 1px solid #333333; text-align: center; background-color:#9cabc0;">남은 재고 사이즈</th>
+          {% for shoes in shoes %}
+          <tr><!-- 첫번째 줄 시작 -->
+              <td style="padding: 10px; border: 1px solid #333333; text-align: center;">{{shoes.category_num.category_name}}</td>
+              <td style="padding: 10px; border: 1px solid #333333; text-align: center;">{{shoes.matrial_num.matrial_name}}</td>
+              <td style="padding: 10px; border: 1px solid #333333; text-align: center;">{{shoes.shoesnum}}</td>
+              <td style="padding: 10px; border: 1px solid #333333; text-align: center;">{{shoes.size}}</td>
+          </tr><!-- 첫번째 줄 끝 -->
+          {% endfor %}
+
+        </table>
+
+
+
+
+			</div>
+
+	</body>
+</html>
+
+
+
